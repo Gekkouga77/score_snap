@@ -32,8 +32,17 @@ function formatDateRange(n, t) {
   const e = new Date(parseInt(n));
   const o = new Date(parseInt(t));
 
-  return e.toDateString() === o.toDateString() ? 
-    formatSingleDate(n) : `${e.getDate()}-${o.getDate()} ${e.toLocaleString("default", {month: "short"})}`;
+  if (e.toDateString() === o.toDateString()) {
+    return formatSingleDate(n);
+  }
+
+  if (e.getMonth() !== o.getMonth()) {
+    return `${formatSingleDate(n)} - ${formatSingleDate(t)}`;
+  } 
+  
+  else {
+    return `${e.getDate()} - ${o.getDate()} ${e.toLocaleString("default", { month: "short" })}`;
+  }
 }
 
 function formatMatchDate(n, t, e) {
