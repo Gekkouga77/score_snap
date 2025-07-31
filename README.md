@@ -2,6 +2,7 @@
 
 A modern, responsive cricket scoring web application that provides real-time match data and detailed scorecards.
 
+
 ## 🧩 Features
 - **Live Match Tracking** with real-time updates
 - **Detailed Scorecards** with batting and bowling statistics  
@@ -37,7 +38,12 @@ vignesh_live-cricket-tracker/
 ![Scoreboard Screenshot](images/scoreboard.jpeg)
 
 ## 🚀 Getting Started
-
-Open `index.html` in your browser or use a local server (python3 -m http.servver)
+Do either of the 3 options given below:
+- Open `index.html` in your browser
+- Run a local server:
+  ```bash
+  python3 -m http.server
+  ```
+- Access the live version: [ScoreSnap](https://https://scoresnap.vercel.app/)
 
 > ⚠️ **Free Tier Restriction**: This application uses a free tier subscription of RapidAPI, which allows up to 200 API calls. The application will stop functioning after this limit is exceeded.
