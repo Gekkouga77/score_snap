@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: #F8F9FA;
+  color: #1A1A1A;
+  line-height: 1.6;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.page-subtitle {
+  font-size: 19px;
+  font-weight: 400;
+  margin-bottom: 24px;
+  color: #2e2d2d;
+}
+
+.match-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #E0E0E0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.match-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-meta-info { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  font-size: 0.8rem; 
+  color: #666; 
+}
+
+.card-status { 
+  font-weight: 700; 
+  display: flex;
+  align-items: center; 
+  gap: 4px;
+}
+
+.card-status.status-live {
+  color: #DC3545;
+}
+
+.card-status.status-live::before {
+  content: "•";
+  font-size: 1.2em;
+  line-height: 0;
+  color: #DC3545;
+  animation: blinker 1.5s linear infinite;
+}
+
+.card-main-content { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px; 
+}
+
+.card-team-row { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.card-team-details { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  font-size: 1rem; 
+  font-weight: 500; 
+}
+
+.card-team-score { 
+  font-size: 1rem; 
+  font-weight: 700; 
+}
+
+.card-match-status { 
+  font-size: 0.95rem; 
+  font-weight: 500; 
+  color: #1A1A1A; 
+  text-align: center; 
+  margin-top: 8px; 
+  padding-top: 12px; 
+  border-top: 1px solid #f0f0f0; 
+}
+
+.team-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  background-color: #e9ecef;
+  position: relative;
+
+}
+
+.logo-text-small { 
+  font-size: 0.6rem; 
+}
+
+.team-logo-1 {
+  background-color: #1A2A6C;
+  color: #fff;
+}
+
+.team-logo-2 {
+    background-color: #00B8A9;
+    color: #fff;
+}
+
+.team-logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.loading-container { 
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 24px; 
+}
+
+.skeleton-card { 
+  background: #fff; 
+  border-radius: 12px; 
+  padding: 24px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+}
+
+.skeleton-line { 
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); 
+  background-size: 200% 100%; 
+  animation: loading 1.5s infinite; 
+  border-radius: 4px; 
+  margin-bottom: 12px; 
+}
+
+.skeleton-header-line { 
+  height: 20px; 
+  width: 70%; 
+}
+
+.skeleton-teams-line { 
+  height: 60px; 
+  width: 100%; 
+  margin-top: 16px; 
+}
+
+.skeleton-status-line { 
+  height: 20px; 
+  width: 90%; 
+  margin-top: 16px; 
+}
+
+@keyframes loading { 
+  0% { background-position: 200% 0; } 
+  100% { background-position: -200% 0; } 
+}
+
+.error-container, .empty-state { 
+  padding: 24px 0; 
+}
+
+.error-card, .no-matches-card { 
+  background: #FFFFFF; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07); 
+  border: 1px solid #f0f0f0; 
+  padding: 48px; 
+  text-align: center; 
+  max-width: 770px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-card h2, .no-matches-card h2 { 
+  font-size: 1.1rem; 
+  font-weight: 630; 
+  color: #333; 
+  margin-bottom: 8px; 
+}
+
+.error-card p, .no-matches-card p { 
+  font-size: 0.9rem; 
+  color: #6c757d; 
+}
+
+.retry-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color .2s;
+    font-family: "IBM Plex Sans", sans-serif;
+    word-spacing: 5px;
+    margin-top: 24px;
+}
+
+.retry-btn:hover {
+    background-color: #333;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 24px; 
+}
+
+.matches-grid { 
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 24px; 
+  margin-bottom: 48px; 
+}
+
+@media (min-width: 768px) {
+  .matches-grid, .loading-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

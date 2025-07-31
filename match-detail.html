@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Match Details</title>
+  <link rel="stylesheet" href="match-detail.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <main class="container">
+
+    <div class="back-button">
+      <button onclick="goBack()" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        <span id="back-button-text">Back To Matches</span>
+      </button>
+    </div>
+
+    <div id="loadingState" class="loading-container">
+      <div class="match-header-skeleton skeleton-card">
+          <div class="skeleton-line skeleton-header-line"></div>
+          <div class="skeleton-line skeleton-teams-line"></div>
+          <div class="skeleton-line skeleton-status-line"></div>
+      </div>
+      <div class="skeleton-card">
+          <div class="skeleton-line skeleton-section-title"></div>
+          <div class="skeleton-line skeleton-content-line"></div>
+          <div class="skeleton-line skeleton-content-line"></div>
+      </div>
+    </div>
+
+    <div id="errorState" class="error-container" style="display: none;">
+      <div class="error-card">
+        <div class="error-content">
+            <h2>Match is not found</h2>
+            <p>The requested match could not be found</p>
+            <button onclick="retryAgain()" class="retry-btn">↻ Retry</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="matchContent" style="display: none;">
+      <div class="match-detail-header">
+          <div id="match-meta"></div>
+          <div id="team-score-summary" class="teams-scores"></div>
+      </div>
+      <div class="tabs" id="innings-tabs"></div>
+      <div id="innings-container"></div>
+    </div>
+  </main>
+  
+  <script src="match-detail.js"></script>
+</body>
+</html>

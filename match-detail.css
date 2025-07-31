@@ -1,0 +1,530 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+  font-family: "IBM Plex Sans", sans-serif; 
+  background-color: #f3f3f3; 
+  color: #000000; 
+  line-height: 1.6; 
+}
+
+.container { 
+  max-width: 900px; 
+  margin: 0 auto; 
+  padding: 24px; 
+}
+
+.back-button { 
+  margin-bottom: 24px; 
+}
+
+.back-btn { 
+  background: #000; 
+  border: 1px solid #000; 
+  color: #fff; 
+  font-size: 14px; 
+  cursor: pointer; 
+  padding: 10px 16px; 
+  border-radius: 8px; 
+  transition: all 0.3s; 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  font-weight: 500;
+  font-family: "IBM Plex Sans", sans-serif; 
+}
+
+.back-btn:hover { 
+  background-color: #e9ecef;
+  color: #333;
+  border-color: #ccc;  
+}
+
+#match-meta {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px 24px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+  border: 1px solid #e9e9e9;
+}
+
+.match-header-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.match-header-date {
+  font-size: .8rem;
+  color: #666;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.match-header-main {
+  display: grid;
+  grid-template-columns: 1fr 65px auto 65px 1fr;
+  align-items: start;
+  gap: 12px;
+}
+
+.team-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.team-name {
+  font-weight: 500;
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
+  color: #1A1A1A;
+  text-align: center;
+  width: 100%;       
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team-scores-column {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  justify-content: center;
+  min-height: 40px;
+}
+
+.score-overs {
+  font-size: .7rem;
+  font-weight: 400;
+  color: #666;
+  line-height: 1;
+}
+
+.team-scores-left,.team-scores-right{
+  text-align: center;
+}
+
+.inning-labels-column {
+  font-size: .7rem;
+  color: #888;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  min-height: 40px;
+  padding-inline: 16px;
+}
+
+.score-placeholder {
+    visibility: hidden;
+}
+
+.match-header-status {
+  text-align: center;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 16px;
+}
+
+.status-result {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.status-detail {
+  font-size: .9rem;
+  color: #666;
+}
+
+.team-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+  background-color: #e9ecef;
+  white-space: nowrap;
+}
+
+.team-logo span {
+  display: inline-block;
+  line-height: 1;
+}
+
+.logo-text-small {
+  font-size: .75rem;
+}
+
+.team-logo-1 {
+  background-color: #1A2A6C;
+  color: #fff;
+}
+
+.team-logo-2 {
+    background-color: #00B8A9;
+    color: #fff;
+}
+
+.team-logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.inning-content {
+    display: none;
+}
+
+.inning-content.active {
+    display: block;
+}
+
+.batting-card, .bowling-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    color: #1A1A1A;
+}
+
+.scoreboard-section-header, .data-row {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.scoreboard-section-header {
+    font-weight: 600;
+    color: #666;
+    padding: 6px 8px;
+    font-size: .75rem;
+    text-transform: uppercase;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.header-player-name {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.data-row {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.batting-card > .data-row:last-of-type, .bowling-card > .data-row:last-of-type {
+    border-bottom: none;
+}
+
+.stats-header-right, .stats-container {
+    display: flex;
+    flex-shrink: 0;
+    gap: 16px;
+    margin-left: 16px;
+    align-items: center;
+}
+
+.stats-header-right > div, .stats-container > div {
+    width: 30px;
+    text-align: center;
+}
+
+.stats-header-right > div:last-child, .stats-container > div:last-child {
+    width: 50px;
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.player-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.player-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1a1a1a;
+    white-space: normal;
+    word-break: break-word;
+}
+
+
+.dismissal-info {
+    font-size: .8rem;
+    color: #666;
+    padding-top: 2px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    padding: 12px 8px;
+    border-top: 1px solid #eee;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.info-value {
+    color: #1a1a1a;
+}
+
+.info-value span {
+    font-size: .9rem;
+    color: #666;
+    margin-left: 8px;
+}
+
+.info-row-stacked {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 1rem;
+    padding: 12px 8px;
+    border-top: 1px solid #eee;
+}
+
+.info-value-stacked {
+    font-size: .9rem;
+    color: #333;
+    line-height: 1.5;
+    word-break: break-word;
+    text-align: left;
+}
+
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+    transition: all .2s;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.tab-button:hover {
+    background-color: #eee;
+}
+
+.tab-button.active {
+    background-color: #1A1A1A;
+    color: #fff;
+    border-color: #1A1A1A;
+}
+
+.loading-container .skeleton-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+}
+
+.loading-container .skeleton-line {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.skeleton-header-line {
+    height: 24px;
+    width: 60%;
+}
+
+.skeleton-teams-line {
+    height: 60px;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.skeleton-status-line {
+    height: 20px;
+    width: 80%;
+    margin-top: 16px;
+}
+
+.skeleton-section-title {
+    height: 20px;
+    width: 30%;
+}
+
+.skeleton-content-line {
+    height: 40px;
+    width: 100%;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {background-position: -200% 0;
+    }
+}
+
+.error-container {
+    text-align: center;
+    padding: 24px 0;
+}
+
+.error-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .07);
+    padding: 48px;
+    border: 1px solid #f0f0f0;
+    display: block
+}
+
+.error-content h2 {
+    font-size: 1.1rem;
+    font-weight: 630;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.error-content p {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 24px;
+}
+
+.error-card .retry-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color .2s;
+    font-family: "IBM Plex Sans", sans-serif;
+    word-spacing: 5px;
+}
+
+.error-card .retry-btn:hover {
+    background-color: #333;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 12px;
+    }
+
+    #match-meta {
+        padding: 16px;
+    }
+
+    .match-header-main {
+        gap: 8px;
+    }
+
+    .team-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .team-scores-column {
+        font-size: 1.3rem;
+    }
+
+    .score-overs {
+        font-size: .65rem;
+    }
+
+    .batting-card, .bowling-card {
+        padding: 12px 8px;
+    }
+
+    .stats-header-right, .stats-container {
+        gap: 8px;
+        margin-left: 8px;
+    }
+
+    .stats-header-right > div, .stats-container > div {
+        width: 22px;
+        font-size: 0.8rem;
+    }
+
+    .stats-header-right > div:last-child, .stats-container > div:last-child {
+        width: 40px;
+    }
+
+    .player-info {
+        gap: 8px;
+    }
+
+    .player-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: .8rem;
+    }
+
+    .player-name {
+        font-size: .9rem;
+    }
+
+    .dismissal-info {
+        font-size: .75rem;
+    }
+}
