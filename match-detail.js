@@ -58,14 +58,14 @@ Promise.all([
   fetch(`https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/${matchId}/scard`, {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "ade6db22c2msh5675acc6a0a4be5p19773djsne8eab3f14f00",
+      "x-rapidapi-key": "01b3c1f2edmshd8b9ae829fbe4e3p16a2b6jsn921b1aa0a26c",
       "x-rapidapi-host": "cricbuzz-cricket.p.rapidapi.com"
     }
   }).then(res => res.json()),
   fetch("https://cricbuzz-cricket.p.rapidapi.com/matches/v1/live", {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "ade6db22c2msh5675acc6a0a4be5p19773djsne8eab3f14f00",
+      "x-rapidapi-key": "01b3c1f2edmshd8b9ae829fbe4e3p16a2b6jsn921b1aa0a26c",
       "x-rapidapi-host": "cricbuzz-cricket.p.rapidapi.com"
     }
   }).then(res => res.json())
@@ -175,7 +175,7 @@ async function loadTeamLogo(team, imgElement) {
   const options = {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "ade6db22c2msh5675acc6a0a4be5p19773djsne8eab3f14f00",
+      "x-rapidapi-key": "01b3c1f2edmshd8b9ae829fbe4e3p16a2b6jsn921b1aa0a26c",
       "x-rapidapi-host": "cricbuzz-cricket.p.rapidapi.com"
     }
   };
